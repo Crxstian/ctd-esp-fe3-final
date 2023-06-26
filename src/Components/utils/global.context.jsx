@@ -1,4 +1,5 @@
-import { createContext } from "react";
+import { createContext , useContext, useState} from "react";
+import { useEffect } from "react";
 
 export const initialState = {theme: "", data: []}
 
@@ -13,3 +14,9 @@ export const ContextProvider = ({ children }) => {
     </ContextGlobal.Provider>
   );
 };
+
+export default ContextProvider;
+
+export const useContextGlobal = ()=>{
+  return useContext (ContextGlobal);
+}
