@@ -13,7 +13,7 @@ const Home = () => {
       <div className='card-grid'>
         {/* Aqui deberias renderizar las cards */}
         {dentistState.dentistList.length
-        ? dentistState.dentistList.map(dentist =>(<Link key={dentist.id} to={`dentista/`+dentist.id}><Card dentist={dentist}/></Link>))
+        ? dentistState.dentistList.map(dentist =>(<Card key={dentist.id}dentist={dentist}/>))
         : null
         }
       </div>

@@ -6,7 +6,7 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch({type: 'ADD_FAV', payload: newUser})
+    
 }
 
   return (
@@ -14,7 +14,7 @@ const Form = () => {
       <form onSubmit={handleSubmit}>
         <input type="text" name="userName" placeholder="Escriba su nombre"/>
         <input type="text" name="email" placeholder="Escriba su email"/>
-        <button>Enviar</button>
+        <button >Enviar</button>
       </form>
     </div>
   );

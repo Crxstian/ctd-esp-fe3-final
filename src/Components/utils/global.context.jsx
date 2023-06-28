@@ -6,7 +6,7 @@ export const initialState = {
   theme: "", 
   dentistList: [],
   dentist:{},
-  favs:[]
+  favs: JSON.parse(localStorage.getItem('favs'))||[]
 }
 export const ContextGlobal = createContext(initialState);
 
@@ -19,7 +19,7 @@ export const dentistReducer = (state,action) => {
       case 'GET_DENTIST':
           return {...state, dentist: action.payload}
       case 'ADD_FAV':
-          return {...state, favs: action.payload}
+          return {...state, favs: [...state.favs, action.payload]}
       case 'RM_FAV':
           return {...state, favs: action.payload}
       default:
@@ -40,6 +40,10 @@ export const dentistReducer = (state,action) => {
     axios(urlList)
     .then(res=> dentistDispatch({type:'GET_LIST', payload:res.data}))
 },[])
+
+  useEffect( ()=>{
+    localStorage.setItem('favs', JSON.stringify(dentistState.favs))
+  },[dentistState.favs])
 
   return (
     <ContextGlobal.Provider value={{
