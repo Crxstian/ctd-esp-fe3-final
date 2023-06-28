@@ -4,6 +4,7 @@ import { routes } from "./Components/utils/routes";
 import Home from "./Routes/Home";
 import Contact from "./Routes/Contact"
 import Favs from "./Routes/Favs"
+import Detail from "./Routes/Detail";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
               <Route path={routes.home} element={<Home/>}/>
               <Route path={routes.contact} element={<Contact/>}/>
               <Route path={routes.favourites} element={<Favs/>}/>
+              <Route path={routes.detail} element={<Detail/>}/>
             </Route>
           </Routes>
 
