@@ -3,7 +3,15 @@ import { createContext , useContext, useEffect, useReducer} from "react";
 
 
 export const initialState = {
-  theme: "", 
+  theme: {
+    light: {
+    font: 'black',
+    background: 'white'
+    },
+    dark: {
+    font: 'white',
+    background: 'black'
+    }}, 
   dentistList: [],
   dentist:{},
   favs: JSON.parse(localStorage.getItem('favs'))||[]
