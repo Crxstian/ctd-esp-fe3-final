@@ -7,6 +7,7 @@ import Favs from "./Routes/Favs"
 import Detail from "./Routes/Detail";
 
 
+
 function App() {
   return (
       <div className="App">

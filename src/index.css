@@ -127,7 +127,10 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
-
+.dark-theme{
+  color: white;
+  background-color: rgb(66, 62, 62);
+}
 .dark{
   background-color: #12121296;
   color: white;
@@ -148,4 +151,30 @@ tr:nth-child(even) {
 }
 .image-card{
   max-width: 100%;
+}
+.footer-dark{
+  background-color: #333; 
+  color:white;
+}
+.footer-light{
+  background-color: #555;
+  color: white;
+}
+.error-message {
+  background-color: rgb(70, 97, 173);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.success-message {
+  background-color: rgb(37, 148, 47);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 10px 0;
 }

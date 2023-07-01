@@ -3,15 +3,7 @@ import { createContext , useContext, useEffect, useReducer} from "react";
 
 
 export const initialState = {
-  theme: {
-    light: {
-    font: 'black',
-    background: 'white'
-    },
-    dark: {
-    font: 'white',
-    background: 'black'
-    }}, 
+  theme: "light", 
   dentistList: [],
   dentist:{},
   favs: JSON.parse(localStorage.getItem('favs'))||[]
@@ -30,6 +22,10 @@ export const dentistReducer = (state,action) => {
           return {...state, favs: [...state.favs, action.payload]}
       case 'RM_FAV':
           return {...state, favs: action.payload}
+      case 'DARK':
+          return {...state, theme: action.payload}
+      case 'LIGHT':
+          return {...state,theme: action.payload}
       default:
         throw new Error()
     }
@@ -52,6 +48,14 @@ export const dentistReducer = (state,action) => {
   useEffect( ()=>{
     localStorage.setItem('favs', JSON.stringify(dentistState.favs))
   },[dentistState.favs])
+
+  useEffect(() => {
+    if (dentistState.theme === 'dark') {
+      document.body.classList.add('dark-theme');
+    } else {
+      document.body.classList.remove('dark-theme');
+    }
+  }, [dentistState.theme]);
 
   return (
     <ContextGlobal.Provider value={{

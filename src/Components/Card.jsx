@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContextGlobal } from "./utils/global.context";
+import { useEffect } from "react";
 
 const Card = ({dentist}) => {
 
@@ -13,9 +14,14 @@ const Card = ({dentist}) => {
       //Construir nuevo array sin el dentist actual en caso de que ya este, asi se remueve
       const newFavorites = dentistState.favs.filter(dentistFav => dentistFav.id !== dentist.id)
       dentistDispatch({type:'RM_FAV',payload :newFavorites});
+      
     }
     else dentistDispatch({type:'ADD_FAV',payload : dentist})
   }
+  //Usando este use effect pude lograr que las cards renderizen cuando son eliminadas de favs, y otro useEffect en Favs
+  useEffect( ()=>{
+    localStorage.setItem('favs', JSON.stringify(dentistState.favs))
+  },[dentistState.favs])
   
   return (
     <div className="card">
